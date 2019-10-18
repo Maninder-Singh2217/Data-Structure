@@ -1,0 +1,39 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+#include <stack>
+using namespace std;
+void tranfer(stack <long> &from,stack <long> &to){
+    while(!from.empty()){
+        to.push(from.top());
+        from.pop();
+    }
+}
+
+int main() {
+    stack <long> s,ss;
+    int i,option,q;
+     long data,temp;
+    cin>>q;
+    while(q--)
+    {   
+        cin>>option;
+        if(option==1){
+            cin>>data;
+            s.push(data);
+        }
+        else if (option==2){
+            if(ss.empty()){tranfer(s,ss);}
+            ss.pop();
+        }
+        else{  
+        if(ss.empty()){tranfer(s,ss);}
+        cout<<ss.top()<<endl;
+        }
+    }
+    return 0;
+    }
+    
+
